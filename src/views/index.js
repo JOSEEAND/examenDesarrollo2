@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Image, ScrollView, Text, View } from 'react-native';
+import { Image, ScrollView, Text, View, TouchableOpacity } from 'react-native';
 import { style_01 } from '../styles/style_01';
+import PokemonDetail from '../components/pokemonDetails'
 
 const data = [
   { name: 'Bulbasaur', apiEndpoint: 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=151' },
@@ -34,6 +35,10 @@ const Index = () => {
     fetchData();
   }, []);
 
+  const handleCardPress = (pokemon) => {
+    navigation.navigate('PokemonDetail', { name: pokemon.name, image: pokemon.image });
+  };
+  
   return (
     <View>
       <View style={style_01.divHeader}>
@@ -41,20 +46,22 @@ const Index = () => {
       </View>
 
       <View style={style_01.divMain}>
-        <Text style={style_01.p1}>Trainer</Text>
-        <Text style={style_01.p1}>Teams</Text>
+        <View style={style_01.divTeamsTrainer}>
+          <Text style={style_01.p1}>Trainer</Text>
+          <Text style={style_01.p1}>Teams</Text>
+        </View>
         <Text style={style_01.h1}>First generation</Text>
 
         <ScrollView style={{ marginTop: 8 }}>
           {pokemonDetails.map((item) => (
-            <View style={style_01.tarjeta} key={item.name}>
+            <TouchableOpacity
+              style={style_01.tarjeta}
+              key={item.name}
+              onPress={() => handleCardPress(item)}
+            >
+              <Image source={{ uri: `https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/${item.data.name}.png` }} style={{ width: 120, height: 100 }} />
               <Text>{item.name}</Text>
-              {item.data ? (
-                <Image source={{ uri: `https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/${item.data.name}.png` }} style={{ width: 50, height: 50 }} />
-              ) : (
-                <Text>Error al cargar la imagen</Text>
-              )}
-            </View>
+            </TouchableOpacity>
           ))}
         </ScrollView>
       </View>

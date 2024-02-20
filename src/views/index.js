@@ -20,7 +20,7 @@ const Index = () => {
         try {
           const response = await fetch(item.apiEndpoint);
           const data = await response.json();
-          const pokemonData = data.results[0]; // Tomamos solo el primer resultado
+          const pokemonData = data.results[0]; 
           return { name: item.name, data: pokemonData };
         } catch (error) {
           console.error(`Error al obtener datos de ${item.name}:`, error.message);

@@ -4,11 +4,10 @@ import { style_01 } from '../styles/style_01';
 
 const data = [
   { name: 'Bulbasaur', image: require('../img/bulbasaur.jpeg') },
-  { name: 'Ivysaur', image: require('../img/ivisaur.jpeg') },
-  { name: 'Venusaur', image: require('../img/venusaur.jpeg') },
-  { name: 'Charmander', image: require('../img/charender.png') },
-  { name: 'Charmeleon', image: require('../img/charmaleon.png') },
-  { name: 'Charizard', image: require('../img/charizard.png') }
+  { name: 'Chikorita', image: require('../img/chikorita.jpeg') },
+  { name: 'Treecko', image: require('../img/treecko.jpeg') },
+  { name: 'Turtwig', image: require('../img/turtwig2.png') },
+  { name: 'Victini', image: require('../img/victinit2.png') },
 ];
 
 const Index = () => {

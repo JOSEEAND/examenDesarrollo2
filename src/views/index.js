@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Image, ScrollView, Text, View, TouchableOpacity } from 'react-native';
 import { style_01 } from '../styles/style_01';
-import PokemonDetail from '../components/pokemonDetails';
+import { useNavigation } from '@react-navigation/native';
 
 const generationEndpoints = [
   'https://pokeapi.co/api/v2/pokemon?offset=0&limit=151',
@@ -12,6 +12,7 @@ const generationEndpoints = [
 ];
 
 const Index = () => {
+  const navigation = useNavigation();
   const [pokemonDetails, setPokemonDetails] = useState([]);
   const [currentGeneration, setCurrentGeneration] = useState(0);
 
@@ -35,7 +36,7 @@ const Index = () => {
   }, [currentGeneration]);
 
   const handleCardPress = (pokemon) => {
-    navigation.navigate('PokemonDetail', { name: pokemon.name, url: pokemon.url });
+    navigation.navigate('PokemonDetail', { name: pokemon.name });
   };
 
   const handleGenerationChange = (generationIndex) => {
@@ -50,7 +51,7 @@ const Index = () => {
 
       <View style={style_01.divMain}>
         <View style={style_01.divTeamsTrainer}>
-          <Text style={style_01.h1}>Generations</Text>
+          <Text style={style_01.h1}>Generaciones</Text>
         </View>
 
         <View style={style_01.divGenerationButtons}>

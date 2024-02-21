@@ -4,7 +4,6 @@ const alto = Dimensions.get('window').height - 150;
 const principal = '#1B2E66';
 const naranja = '#FF9900';
 const gris_1 = '#B2BDD5';
-const azulClaro = '#87CEEB'; 
 
 export const style_01 = StyleSheet.create({
   body: {
@@ -35,7 +34,7 @@ export const style_01 = StyleSheet.create({
     fontWeight: '300',
   },
   h1: {
-    color: 'gray',
+    color: 'black',
     marginTop: 5,
     textAlign: 'center',
     marginBottom: 5,
@@ -63,20 +62,35 @@ export const style_01 = StyleSheet.create({
     fontSize: 15,
   },
 
+  divGenerationButtons: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginVertical: 8,
+  },
+  generationButton: {
+    backgroundColor: '#ffff34',
+    paddingVertical: 10, 
+    paddingHorizontal: 30, 
+    borderRadius: 30,
+  },  
+  generationButtonText: {
+    color: 'black',
+    fontSize: 16,
+  },
+
   tarjeta: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 10,
     margin: 5,
     padding: 10,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start', 
   },
 
   divTeamsTrainer: {
     flexDirection: 'row',
-    backgroundColor: azulClaro,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     padding: 8,
     marginBottom: 8
   },
